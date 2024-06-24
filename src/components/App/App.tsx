@@ -7,15 +7,16 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loader from "../Loader/Loader";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
+import { ModalImage, Image } from "./App.types";
 
-export default function App() {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [error, setError] = useState(false);
-  const [modalImage, setModalImage] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+const App: React.FC = () => {
+  const [images, setImages] = useState<Image[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [error, setError] = useState<boolean>(false);
+  const [modalImage, setModalImage] = useState<ModalImage>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (!searchTerm) return;
@@ -35,7 +36,7 @@ export default function App() {
     handleSearch();
   }, [page, searchTerm]);
 
-  const handleChangeTerm = (newValue) => {
+  const handleChangeTerm = (newValue: string) => {
     setImages([]);
     setPage(1);
     setSearchTerm(newValue);
@@ -45,7 +46,7 @@ export default function App() {
     setPage((prevPage) => prevPage + 1);
   };
 
-  const handleOpenModal = (image) => {
+  const handleOpenModal = (image: Image) => {
     setModalImage(image);
     setIsOpen(true);
   };
@@ -73,4 +74,5 @@ export default function App() {
       )}
     </>
   );
-}
+};
+export default App;

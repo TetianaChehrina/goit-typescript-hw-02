@@ -1,5 +1,7 @@
 import css from "./ImageCard.module.css";
-const ImageCard = ({ image, onOpen }) => {
+import { Image } from "../App/App.types";
+import { ImageCardProps } from "./ImageCard.types";
+const ImageCard: React.FC<ImageCardProps> = ({ image, onOpen }) => {
   return (
     <div className={css.image_Card}>
       <img

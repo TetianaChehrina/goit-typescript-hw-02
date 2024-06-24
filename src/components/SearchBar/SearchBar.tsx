@@ -1,12 +1,12 @@
 import toast, { Toaster } from "react-hot-toast";
 import css from "./SearchBar.module.css";
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, Form, FormikValues, FormikHelpers } from "formik";
 import { AiOutlineExclamation } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useId } from "react";
-
-const SearchBar = ({ onSearch }) => {
-  const initialValues = { text: "" };
+import { SearchBarProps } from "./SearchBarProps.types";
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+  const initialValues: FormikValues = { text: "" };
   const searchId = useId();
   const notify = () =>
     toast(
@@ -16,7 +16,10 @@ const SearchBar = ({ onSearch }) => {
       </p>
     );
 
-  function handleSubmit(values, actions) {
+  function handleSubmit(
+    values: FormikValues,
+    actions: FormikHelpers<FormikValues>
+  ) {
     if (!values.text) {
       notify();
       return;
@@ -45,10 +48,10 @@ const SearchBar = ({ onSearch }) => {
 
           success: {
             duration: 3000,
-            theme: {
-              primary: "green",
-              secondary: "black",
-            },
+            // theme: {
+            //   primary: "green",
+            //   secondary: "black",
+            // },
           },
         }}
       />
