@@ -47,8 +47,10 @@ const App: React.FC = () => {
   };
 
   const handleOpenModal = (image: Image) => {
-    setModalImage(image);
-    setIsOpen(true);
+    if (image) {
+      setModalImage(image);
+      setIsOpen(true);
+    }
   };
 
   const handleCloseModal = () => {
