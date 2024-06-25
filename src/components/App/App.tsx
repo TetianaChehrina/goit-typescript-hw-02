@@ -7,7 +7,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loader from "../Loader/Loader";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
-import { ModalImage, Image } from "./App.types";
+import { Image } from "./App.types";
 
 const App: React.FC = () => {
   const [images, setImages] = useState<Image[]>([]);
@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const [page, setPage] = useState<number>(1);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
-  const [modalImage, setModalImage] = useState<ModalImage>(null);
+  const [modalImage, setModalImage] = useState<Image | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {

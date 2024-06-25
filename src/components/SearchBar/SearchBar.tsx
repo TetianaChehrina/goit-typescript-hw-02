@@ -34,24 +34,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     <header className={css.header}>
       <Toaster
         position="top-center"
-        reverseOrder={false}
         gutter={8}
-        containerClassName=""
-        containerStyle={{}}
         toastOptions={{
-          className: "",
-          duration: 3000,
           style: {
             background: "red",
             color: "#fff",
-          },
-
-          success: {
-            duration: 3000,
-            // theme: {
-            //   primary: "green",
-            //   secondary: "black",
-            // },
           },
         }}
       />
