@@ -13,7 +13,7 @@ const App: React.FC = () => {
   const [images, setImages] = useState<Image[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
-  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>("cat");
   const [error, setError] = useState<boolean>(false);
   const [modalImage, setModalImage] = useState<Image | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
